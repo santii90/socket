@@ -8,10 +8,13 @@ socket.on('disconnect', function () {
     console.log('Disconnected from server');
 });
 
-socket.on('newEmail', function(email){
-    console.log('New email', email);
-});
-
 socket.on('newMessage', function(message){
     console.log('newMessage', message);
+});
+
+socket.emit('createMessage', {
+    from: 'Pau',
+    text: 'Holis a todis'
+}, function(data){
+    console.log('Got it', data);
 });
